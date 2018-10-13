@@ -1,0 +1,207 @@
+body {
+	font-family: 'Rajdhani', sans-serif;
+
+	margin: 0;
+	padding: 0;
+
+	background-color: black;
+}
+
+h1 {
+	color: white;
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 40pt;
+}
+
+h2 {
+	color: white;
+	font-weight: 400;
+	font-size: 20pt;
+	margin: 0;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+h3 {
+	color: #333366;
+	font-weight: 400;
+	font-size: 18pt;
+}
+
+h4 {
+	color: #fff;
+	font-size: 16pt;
+	font-weight: 500;
+
+	margin: 0;
+}
+
+h5 {
+	color: #333366;
+	text-transform: uppercase;
+}
+
+p {
+	color: white;
+	font-size: 15pt;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	cursor: pointer;
+}
+
+.fixed_menu {
+	position: fixed;
+	display: grid;
+
+	height: 100%;
+	width: 100%;
+
+	grid-template-columns: 2.5vw 1fr 1fr 1fr 1fr 2.5vw;
+	grid-template-rows: 2.5vw 1fr 1fr 1fr 1fr 2.5vw;
+	grid-template-areas: 
+		". . . . . ."
+		". logo . . contact ."
+		". . . . . ."
+		". . . . . ."
+		". menu . . . ."
+		". . . . . .";
+
+	z-index: 100;
+}
+
+.fixed_menu .logo {
+	grid-area: logo;
+}
+
+.fixed_menu .contact {
+	grid-area: contact;
+}
+
+.fixed_menu .contact h4 {
+	float: right;
+}
+
+.fixed_menu .menu {
+	position: relative;
+	grid-area: menu;
+}
+
+.fixed_menu .menu .item_container {
+	position: absolute;
+	bottom: 0;
+}
+
+.anim_block {
+	width: 100%;
+
+	overflow: hidden;
+}
+
+.anim_block .heading_block {
+	position: fixed;
+
+	width: 28%;
+	height: auto;
+
+	top: 0;
+	left: 0;
+
+	margin-top: 25vh;
+	padding-left: 2.5vw;
+	padding-right: 2.5vw;
+
+	-webkit-transform: translateY(100%);
+	-ms-transform: translateY(100%);
+	transform: translateY(100%);
+
+	visibility: hidden;
+
+	overflow: scroll;
+}
+
+.anim_block .heading_block--active {
+	visibility: visible;
+}
+
+.anim_block .text_distortion_anim--active {
+	animation: glitch-skew 4s cubic-bezier(.25, .46, .45, .94) infinite;
+}
+
+.anim_block .heading_block h1 {
+	margin-top: 0;
+	line-height: 85%;
+}
+
+#anim_0 .heading_block {
+	width: 50%;
+}
+
+#anim_0 h1 {
+	font-size: 50pt;
+}
+
+#anim_0 p {
+	font-size: 20pt;
+}
+
+@keyframes glitch-skew {
+    0% {transform: skew(0deg, 0deg);}
+    2% {transform: skew(0deg, 0deg);filter: blur(0);}
+    4% {transform: skew(-20deg, 0deg);filter: blur(4px);}
+    6% {transform: skew(20deg, 0deg);}
+    8% {transform: skew(0deg, 0deg);filter: blur(0);}
+
+    16% {transform: skew(0deg, 0deg);filter: blur(0);}
+    18% {transform: skew(0deg, 0deg);filter: blur(0);}
+    20% {transform: skew(-20deg, 0deg);filter: blur(4px);}
+    22% {transform: skew(20deg, 0deg);}
+    24% {transform: skew(0deg, 0deg);filter: blur(0);}
+
+    48% {transform: skew(0deg, 0deg);filter: blur(0);}
+    50% {transform: skew(-20deg, 0deg);filter: blur(4px);}
+    52% {transform: skew(20deg, 0deg);}
+    54% {transform: skew(0deg, 0deg);filter: blur(0);}
+
+    78% {transform: skew(0deg, 0deg);filter: blur(0);}
+    80% {transform: skew(-20deg, 0deg);filter: blur(4px);}
+    82% {transform: skew(20deg, 0deg);}
+    84% {transform: skew(0deg, 0deg);filter: blur(0);}
+    100% {transform: skew(0deg, 0deg);}
+}
+
+#anim_0 .heading_block {
+	-webkit-transform: translateY(0%);
+	-ms-transform: translateY(0%);
+	transform: translateY(0%);
+}
+
+@media screen and (max-width: 992px) {
+	/*h1 {
+		font-size: 50pt;
+	}
+	h2 {
+		font-size: 30pt;
+	}
+	h3 {
+		font-size: 30pt;
+	}
+	h4 {
+		font-size: 30pt;
+	}
+	p {
+		font-size: 25pt;
+	}
+	li {
+		font-size: 25pt;
+	}*/
+}
+
+@media screen and (orientation:landscape) and (max-width: 992px) {
+
+}
