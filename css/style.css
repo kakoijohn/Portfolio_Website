@@ -57,39 +57,39 @@ a:hover {
 
 .fixed_menu {
 	position: fixed;
-	display: grid;
 
-	height: 100%;
-	width: 100%;
+	margin: 2.5vh 2.5vw 2.5vh 2.5vw;
 
-	grid-template-columns: 2.5vw 1fr 1fr 1fr 1fr 2.5vw;
-	grid-template-rows: 2.5vw 1fr 1fr 1fr 1fr 2.5vw;
-	grid-template-areas: 
-		". . . . . ."
-		". logo . . contact ."
-		". . . . . ."
-		". . . . . ."
-		". menu . . . ."
-		". . . . . .";
+	height: 95vh;
+	width: 95vw;
 
-	z-index: 100;
+	z-index: 1;
 }
 
 .fixed_menu .logo {
+	position: absolute;
+
+	left: 0;
+	top: 0;
 	grid-area: logo;
 }
 
 .fixed_menu .contact {
-	grid-area: contact;
-}
+	position: absolute;
 
-.fixed_menu .contact h4 {
-	float: right;
+	grid-area: contact;
+	
+	right: 0;
+	top: 0;
 }
 
 .fixed_menu .menu {
-	position: relative;
+	position: absolute;
+
 	grid-area: menu;
+
+	left: 0;
+	bottom: 0;
 }
 
 .fixed_menu .menu .item_container {
@@ -123,6 +123,8 @@ a:hover {
 	visibility: hidden;
 
 	overflow: scroll;
+
+	z-index: -1;
 }
 
 .anim_block .heading_block--active {
@@ -181,6 +183,15 @@ a:hover {
 	transform: translateY(0%);
 }
 
+.blank_separator {
+	height: 2500px;
+	width: 100%;
+}
+
+.website_reference {
+	z-index: 2;
+}
+
 @media screen and (max-width: 992px) {
 	/*h1 {
 		font-size: 50pt;
@@ -200,6 +211,10 @@ a:hover {
 	li {
 		font-size: 25pt;
 	}*/
+
+	.website_reference {
+		background-color: green;
+	}
 }
 
 @media screen and (orientation:landscape) and (max-width: 992px) {
