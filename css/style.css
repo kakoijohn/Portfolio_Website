@@ -201,7 +201,7 @@ a:hover {
 }
 
 .slide_in_anim .container .text {
-	position: absolute;
+	position: relative;
 
 	margin: 0;
 
@@ -232,7 +232,7 @@ a:hover {
 }
 
 .slide_in_anim .container .box_slide_in--active {
-	transform: translateX(-100%);
+	transform: translateX(-101%);
 }
 
 .slide_in_anim .container .text_slide_in--active {
@@ -240,9 +240,9 @@ a:hover {
 }
 
 #ANT_website_image {
-	height: 500px;
-	width: 500px;
-	background: url(../images/ANT_website.png) top center no-repeat;
+	background: url(../images/ANT_website.png) top left no-repeat;
+	height: 50vh;
+	width: 100%;
 }
 
 @media screen and (max-width: 992px) {

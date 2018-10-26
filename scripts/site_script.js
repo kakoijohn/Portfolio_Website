@@ -36,9 +36,6 @@ $(document).ready(function() {
 			if ($('#container_' + i).visible()) {
 				$('#container_' + i + ' .text').toggleClass('text_slide_in--active', true);
 				$('#container_' + i + ' .opaque_box').toggleClass('box_slide_in--active', true);
-			} else {
-				$('#container_' + i + ' .text').toggleClass('text_slide_in--active', false);
-				$('#container_' + i + ' .opaque_box').toggleClass('box_slide_in--active', false);
 			}
 		}
 
