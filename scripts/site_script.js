@@ -20,6 +20,8 @@ $(document).ready(function() {
 		// console.log($('#anim_' + i).height());
 	}
 
+	var numSlideInContainers = $('.slide_in_anim .container').size();
+
 	//initialize the animation for the main heading
 	mainHeadingAnimation(0.15);
 	$('#home').click(function() {
@@ -27,6 +29,19 @@ $(document).ready(function() {
 	});
 
 	$(document).scroll(function() {
+		// $('.slide_in_anim .container .opaque_box').toggleClass('box_slide_in--active', true);
+		// $('.slide_in_anim .container .text').toggleClass('text_slide_in--active', true);
+
+		for (var i = 0; i < numSlideInContainers; i++) {
+			if ($('#container_' + i).visible()) {
+				$('#container_' + i + ' .text').toggleClass('text_slide_in--active', true);
+				$('#container_' + i + ' .opaque_box').toggleClass('box_slide_in--active', true);
+			} else {
+				$('#container_' + i + ' .text').toggleClass('text_slide_in--active', false);
+				$('#container_' + i + ' .opaque_box').toggleClass('box_slide_in--active', false);
+			}
+		}
+
 		var activeBlock = getCurrentActiveBlock();
 
 		var textScrollInPercent = activeBlock.distFromTop * textScrollSpeed;

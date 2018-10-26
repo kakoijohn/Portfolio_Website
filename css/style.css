@@ -184,12 +184,65 @@ a:hover {
 }
 
 .blank_separator {
-	height: 2500px;
+	height: 2000px;
 	width: 100%;
 }
 
-.website_reference {
-	z-index: 2;
+.slide_in_anim {
+	position: relative;
+}
+
+.slide_in_anim .container {
+	display: relative;
+
+	overflow: hidden;
+
+	margin-left: 30%;
+}
+
+.slide_in_anim .container .text {
+	position: absolute;
+
+	margin: 0;
+
+	transform: translateX(100%);
+
+	transition: cubic-bezier(.77,0,.175,1) 0.7s all;
+
+	overflow: hidden;
+
+	flex: 1;
+}
+
+.slide_in_anim .container .opaque_box {
+	position: absolute;
+
+	height: 100%;
+	width: 100%;
+
+	overflow: hidden;
+
+	top: 0;
+
+	background-color: white;
+
+	transform: translateX(100%);
+
+	transition: cubic-bezier(.77,0,.175,1) 1s all;
+}
+
+.slide_in_anim .container .box_slide_in--active {
+	transform: translateX(-100%);
+}
+
+.slide_in_anim .container .text_slide_in--active {
+	transform: translateX(0%);
+}
+
+#ANT_website_image {
+	height: 500px;
+	width: 500px;
+	background: url(../images/ANT_website.png) top center no-repeat;
 }
 
 @media screen and (max-width: 992px) {
