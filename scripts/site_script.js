@@ -29,8 +29,7 @@ $(document).ready(function() {
 	});
 
 	$(document).scroll(function() {
-		// $('.slide_in_anim .container .opaque_box').toggleClass('box_slide_in--active', true);
-		// $('.slide_in_anim .container .text').toggleClass('text_slide_in--active', true);
+		var scrollTop = $(document).scrollTop();
 
 		for (var i = 0; i < numSlideInContainers; i++) {
 			if ($('#container_' + i).visible()) {
@@ -39,6 +38,18 @@ $(document).ready(function() {
 			}
 		}
 
+		headingAnimation();
+
+		if (scrollTop == 0) {
+			$('#arrow_icon_area').toggleClass('arrow-down-icon', true);
+			$('#arrow_icon_area').toggleClass('solid-line-icon', false);
+		} else if (scrollTop >= 1 && scrollTop <= 10) {
+			$('#arrow_icon_area').toggleClass('arrow-down-icon', false);
+			$('#arrow_icon_area').toggleClass('solid-line-icon', true);
+		}
+	});
+
+	function headingAnimation() {
 		var activeBlock = getCurrentActiveBlock();
 
 		var textScrollInPercent = activeBlock.distFromTop * textScrollSpeed;
@@ -58,8 +69,6 @@ $(document).ready(function() {
 			textScrollPercent = -textScrollInPercent;
 
 		$('#anim_' + activeBlock.blockIndex + ' .heading_block').css({'transform': 'translateY(' + textScrollPercent + '%)'});
-
-
 
 		//make all but current block visible
 		makeCurrentActiveVisible(activeBlock.blockIndex);
@@ -129,7 +138,7 @@ $(document).ready(function() {
 			$('#anim_' + activeBlock.blockIndex + ' .heading_block h1').toggleClass('text_distortion_anim--active', false);
 			$('#anim_' + activeBlock.blockIndex + ' .heading_block p').toggleClass('text_distortion_anim--active', false);
 		}
-	});
+	}
 
 	function makeCurrentActiveVisible(active) {
 		for (var i = 0; i < numAnimBlocks; i++)
@@ -177,7 +186,7 @@ $(document).ready(function() {
 
 					newText = "";
 				} else {
-					numCharsVisible = numCharsVisible - newHeading.length;
+					numCharsVisible = numCharsVisible - newHeading.length + 1;
 
 					var newTextChars = newText.substring(0, numCharsVisible);
 					var newTextWhiteSpace = "<span style=\"color: transparent\">" + newText.substring(numCharsVisible, newText.length) + "</span>";
@@ -188,6 +197,9 @@ $(document).ready(function() {
 				$('#anim_0 .heading_block p').html(newText);
 			} else {
 				clearInterval(id);
+
+				if ($(document).scrollTop() == 0)
+					$('#arrow_icon_area').toggleClass('arrow-down-icon', true);
 			}
 
 			tick++;

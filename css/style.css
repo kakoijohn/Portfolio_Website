@@ -97,6 +97,54 @@ a:hover {
 	bottom: 0;
 }
 
+#arrow_icon_area {
+	transition: ease-in 1s all;
+
+	position: absolute;
+	margin-left: 50vw;
+}
+
+.fixed_menu .arrow-down-icon {
+	color: #fff;
+	position: absolute;
+	margin-left: 50vw;
+	bottom: 0;
+	margin-top: 2px;
+	width: 4px;
+	height: 32px;
+	background-color: currentColor;
+	animation: float-up-down 2s ease-in infinite;
+}
+.fixed_menu .arrow-down-icon:before {
+	content: '';
+	position: absolute;
+	left: -10px;
+	top: 6px;
+	width: 20px;
+	height: 20px;
+	border-top: solid 4px currentColor;
+	border-right: solid 4px currentColor;
+	-webkit-transform: rotate(135deg);
+	        transform: rotate(135deg);
+}
+
+.fixed_menu .solid-line-icon {
+	color: #fff;
+	position: absolute;
+	margin-left: 50vw;
+	bottom: -10;
+	margin-top: 0px;
+	width: 4px;
+	height: 110vh;
+	background-color: currentColor;
+}
+
+@keyframes float-up-down {
+	0% {transform:translateY(0px);}
+    50% {transform:translateY(10px);}
+    100% {transform:translateY(0px);}
+}
+
 .anim_block {
 	width: 100%;
 
@@ -207,7 +255,7 @@ a:hover {
 
 	transform: translateX(100%);
 
-	transition: cubic-bezier(.77,0,.175,1) 0.7s all;
+	transition: cubic-bezier(.77,0,.175,1) 0.4s all;
 
 	overflow: hidden;
 
@@ -228,7 +276,7 @@ a:hover {
 
 	transform: translateX(100%);
 
-	transition: cubic-bezier(.77,0,.175,1) 1s all;
+	transition: cubic-bezier(.77,0,.175,1) 0.7s all;
 }
 
 .slide_in_anim .container .box_slide_in--active {
