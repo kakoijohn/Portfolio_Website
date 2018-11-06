@@ -288,8 +288,12 @@ a:hover {
 }
 
 @media screen and (max-width: 992px) {
-	/*h1 {
-		font-size: 50pt;
+	
+}
+
+@media screen and (orientation:portrait) and (max-width: 992px) {
+	h1 {
+		font-size: 60pt;
 	}
 	h2 {
 		font-size: 30pt;
@@ -298,14 +302,30 @@ a:hover {
 		font-size: 30pt;
 	}
 	h4 {
-		font-size: 30pt;
+		font-size: 40pt;
 	}
 	p {
 		font-size: 25pt;
 	}
 	li {
 		font-size: 25pt;
-	}*/
+	}
+
+	#anim_0 h1 {
+		font-size: 80pt;
+	}
+	#anim_0 p {
+		font-size: 40pt;
+	}
+	#anim_0 .heading_block {
+		width: 75%;
+		margin-top: 25vh;
+	}
+
+	.anim_block .heading_block {
+		width: 95%;
+		margin-top: 20%;
+	}
 
 	.website_reference {
 		background-color: green;
