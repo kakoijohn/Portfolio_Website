@@ -1,5 +1,5 @@
 body {
-	font-family: 'Rajdhani', sans-serif;
+	font-family: 'Rajdhani', 'Helvetica Neue', sans-serif;
 
 	margin: 0;
 	padding: 0;
@@ -92,19 +92,14 @@ a:hover {
 	bottom: 0;
 }
 
-.fixed_menu .menu .item_container {
-	position: absolute;
-	bottom: 0;
-}
-
 #arrow_icon_area {
-	transition: ease-in 1s all;
-
 	position: absolute;
 	margin-left: 50vw;
 }
 
 .fixed_menu .arrow-down-icon {
+	transition: ease-in 1s all;
+
 	color: #fff;
 	position: absolute;
 	margin-left: 50vw;
@@ -132,10 +127,9 @@ a:hover {
 	color: #fff;
 	position: absolute;
 	margin-left: 50vw;
-	bottom: -10;
-	margin-top: 0px;
 	width: 4px;
-	height: 110vh;
+	bottom: 0;
+	margin-top: 0px;
 	background-color: currentColor;
 }
 
