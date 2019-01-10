@@ -33,6 +33,7 @@
 		<script src="../scripts/DDSLoader.js"></script>
 		<script src="../scripts/MTLLoader.js"></script>
 		<script src="../scripts/OBJLoader.js"></script>
+		<script src="../scripts/AsciiEffect.js"></script>
 
 		<script src="../scripts/stats.min.js"></script>
 
@@ -40,7 +41,8 @@
 
 			var container, stats;
 
-			var camera, scene, renderer;
+			var camera, scene, renderer, effect;
+			var globe, rocket;
 
 			var cameraRotX = 0, cameraRotZ = 0;
 
@@ -99,20 +101,43 @@
 							.setMaterials( materials )
 							.setPath( '../objects/' )
 							.load( 'globe.obj', function ( object ) {
-
 								scene.add( object );
 
 							}, onProgress, onError );
 
 					} );
 				
+				// new THREE.MTLLoader()
+				// 	.setPath( '../objects/' )
+				// 	.load( 'rocket.mtl', function ( materials ) {
+
+				// 		materials.preload();
+
+				// 		new THREE.OBJLoader()
+				// 			.setMaterials( materials )
+				// 			.setPath( '../objects/' )
+				// 			.load( 'rocket.obj', function ( object ) {
+				// 				object.position.x = 100;
+				// 				scene.add( object );
+
+				// 			}, onProgress, onError );
+
+				// 	} );
 
 				//
 
 				renderer = new THREE.WebGLRenderer();
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
-				container.appendChild( renderer.domElement );
+				// container.appendChild( renderer.domElement );
+
+				effect = new THREE.AsciiEffect( renderer, ' .:-+*=%@#', { invert: true } );
+				effect.setSize( window.innerWidth, window.innerHeight );
+				effect.domElement.style.color = 'white';
+				effect.domElement.style.backgroundColor = 'black';
+
+				container.appendChild( effect.domElement );
+
 
 				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 
@@ -120,6 +145,12 @@
 
 				window.addEventListener( 'resize', onWindowResize, false );
 
+				camera.position.x = Math.cos( 0 ) * 200;
+				camera.position.z = Math.sin( 0 ) * 200;
+				camera.lookAt( scene.position );
+
+				// rocket = scene.getObjectById(0, true);
+				// rocket.position.x = 100;
 			}
 
 			function onWindowResize() {
@@ -159,10 +190,10 @@
 				// camera.position.x += ( mouseX - camera.position.x ) * .05;
 				// camera.position.y += ( - mouseY - camera.position.y ) * .05;
 
-				camera.lookAt( scene.position );
+				// camera.lookAt( scene.position );
 
-				renderer.render( scene, camera );
-
+				// renderer.render( scene, camera );
+				effect.render( scene, camera );
 			}
 
 
@@ -177,12 +208,18 @@
 
 			    	camera.position.x = Math.cos( cameraRotX ) * 200;
 					camera.position.z = Math.sin( cameraRotZ ) * 200;
+					camera.lookAt(scene.position.x, camera.position.y, scene.position.z);
 			    } else if (char == '39') {
 			    	cameraRotX -= 10 * (Math.PI / 180);
 			    	cameraRotZ -= 10 * (Math.PI / 180);
 
 			    	camera.position.x = Math.cos( cameraRotX ) * 200;
 					camera.position.z = Math.sin( cameraRotZ ) * 200;
+					camera.lookAt(scene.position.x, camera.position.y, scene.position.z);
+			    } else if (char == '38') {
+			    	camera.position.y += 10;
+			    } else if (char == '40') {
+			    	camera.position.y -= 10;
 			    }
 			}
 
