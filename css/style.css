@@ -63,7 +63,7 @@ a:hover {
 	height: 95%;
 	width: 95%;
 
-	z-index: 1;
+	z-index: 5;
 }
 
 .fixed_menu .logo {
@@ -164,7 +164,7 @@ a:hover {
 
 	visibility: hidden;
 
-	z-index: -1;
+	z-index: 1;
 }
 
 .anim_block .heading_block--active {
@@ -288,6 +288,18 @@ a:hover {
 	margin-top: 1900px;
 
 	background: url(../images/globe_animation_slow.gif) center center no-repeat;
+	background-size: cover;
+	image-rendering: pixelated;
+}
+
+#code_frame {
+	margin-top: -50vh;
+	height: 200vh;
+
+	color: white;
+
+	writing-mode: vertical-rl;
+	text-orientation: upright;
 }
 
 #ANT_website_image {
@@ -338,6 +350,14 @@ a:hover {
 
 	.website_reference {
 		background-color: green;
+	}
+
+	#globe_frame {
+		margin-left: auto;
+		margin-right: auto;
+
+		height: 90vw;
+		width: 90vw;
 	}
 }
 

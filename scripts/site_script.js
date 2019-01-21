@@ -184,13 +184,13 @@ $(document).ready(function() {
 
 	function mainHeadingAnimation(animSpeed) {
 		var tick = 0;
-		var id = setInterval(frame, 5);
+		var id = setInterval(frame, 30);
 
 		function frame() {
 			var newHeading = blockArr[0].heading;
 			var newText = blockArr[0].text;
 
-			var percentTextVisible = tick * animSpeed;
+			var percentTextVisible = tick;
 
 			if (percentTextVisible <= 100 && mainHeadingAnimationCancel != true) {
 				mainHeadingAnimationRunning = true;
@@ -226,5 +226,5 @@ $(document).ready(function() {
 			tick++;
 		}
 	}
-	
+
 });
