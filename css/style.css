@@ -293,13 +293,38 @@ a:hover {
 }
 
 #code_frame {
-	margin-top: -50vh;
-	height: 200vh;
+	position: fixed;
+
+	top: 0;
+	right: 0;
+	margin-right: 10vw;
+	
+	height: 300vh;
 
 	color: white;
+}
 
+#code_frame .text {
 	writing-mode: vertical-rl;
 	text-orientation: upright;
+
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	width: 50vw;
+	overflow: hidden;
+}
+
+#code_frame .text li {
+	position: absolute;
+
+	top: -200vh;
+	margin-top: -75vh;
+
+	font-size: 15pt;
+
+	color: darkgreen;
 }
 
 #ANT_website_image {

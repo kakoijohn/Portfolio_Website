@@ -21,6 +21,11 @@ $(document).ready(function() {
 	var numSlideInContainers = $('.slide_in_anim .container').size();
 
 
+	var numCodeFrames = $('#code_frame .text li').size();
+		var codeFrameSpeeds = [];
+		for (var i = 0; i < numCodeFrames; i++)
+			codeFrameSpeeds[i] = Math.random() * 1.5 + 1;
+
 
 	//initialize the animation for the main heading
 	var mainHeadingAnimationRunning = false;
@@ -61,6 +66,28 @@ $(document).ready(function() {
 		} else if (activeBlock.blockIndex == 1 && scrollPercent > 0) {
 			$('#arrow_icon_area').css('height', '100%');
 			$('#arrow_icon_area').css('left', (100 * scrollPercent) + '%');
+		} else if (activeBlock.blockIndex == 2 && scrollPercent > 0) {
+			// $('#code_frame .text li').css('top', (200 * (scrollPercent * 2)) - 200 + 'vh');
+
+			var codeFrameListItems = $('#code_frame .text li');
+			var i = 0;
+			codeFrameListItems.each(function(idx, li) {
+				$(li).css('top', ((200 * (scrollPercent * 2) * codeFrameSpeeds[i]) - 200) + 'vh');
+				i++;
+				
+				var codeText = $(li).html();
+				for (var j = 0; j < codeText.length / 30; j++) {
+					var firstIndex  = Math.floor(Math.random() * codeText.length);
+					var secondIndex = Math.floor(Math.random() * codeText.length);
+
+					var firstChar  = codeText.charAt(firstIndex);
+					var secondChar = codeText.charAt(secondIndex);
+
+					codeText = codeText.substring(0, firstIndex) + secondChar + codeText.substring(firstIndex + 1);
+					codeText = codeText.substring(0, secondIndex) + firstChar + codeText.substring(secondIndex + 1);
+				}
+				$(li).html(codeText);
+			});
 		}
 	});
 
