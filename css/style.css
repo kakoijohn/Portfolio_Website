@@ -325,6 +325,7 @@ a:hover {
 	font-size: 15pt;
 
 	color: darkgreen;
+	-webkit-font-smoothing: none;
 }
 
 #ANT_website_image {
@@ -383,6 +384,14 @@ a:hover {
 
 		height: 90vw;
 		width: 90vw;
+	}
+
+	#code_frame .text {
+		width: 79vw;
+	}
+
+	#code_frame .text li {
+		font-size: 18pt;
 	}
 }
 
