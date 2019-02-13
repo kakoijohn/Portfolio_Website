@@ -24,7 +24,7 @@ $(document).ready(function() {
 	var numCodeFrames = $('#code_frame .text li').size();
 		var codeFrameSpeeds = [];
 		for (var i = 0; i < numCodeFrames; i++)
-			codeFrameSpeeds[i] = Math.random() * 1.5 + 1;
+			codeFrameSpeeds[i] = Math.random() * 2 + 1;
 
 
 	//initialize the animation for the main heading
@@ -67,8 +67,8 @@ $(document).ready(function() {
 
 		if (activeBlock.blockIndex == 1 && scrollPercent > 0) {
 			$('#arrow_icon_area').css('height', '100%');
-			$('#arrow_icon_area').css('left', (100 * scrollPercent) + '%');
-		} 
+			$('#arrow_icon_area').css('left', (100 * scrollPercent * 1.5) + '%');
+		}
 
 		if (activeBlock.blockIndex == 2 && scrollPercent > 0) {
 			$('#code_frame').css('display', 'block');
@@ -80,7 +80,10 @@ $(document).ready(function() {
 				i++;
 				
 				var codeText = $(li).html();
-				for (var j = 0; j < codeText.length / 30; j++) {
+
+				var chance = 20; //% chance
+				var randomChance = Math.floor(Math.random() * 100);
+				if (randomChance <= chance) {
 					var firstIndex  = Math.floor(Math.random() * codeText.length);
 					var secondIndex = Math.floor(Math.random() * codeText.length);
 
@@ -90,6 +93,7 @@ $(document).ready(function() {
 					codeText = codeText.substring(0, firstIndex) + secondChar + codeText.substring(firstIndex + 1);
 					codeText = codeText.substring(0, secondIndex) + firstChar + codeText.substring(secondIndex + 1);
 				}
+
 				$(li).html(codeText);
 			});
 		} else {
@@ -184,6 +188,17 @@ $(document).ready(function() {
 			$('#anim_' + activeBlock.blockIndex + ' .heading_block p').text(newText);
 
 			//make animation for text distortion inactive
+			$('#anim_' + activeBlock.blockIndex + ' .heading_block h1').toggleClass('text_distortion_anim--active', false);
+			$('#anim_' + activeBlock.blockIndex + ' .heading_block p').toggleClass('text_distortion_anim--active', false);
+		}
+
+		//if the last text block is active and all the text is on the screen, don't remove it from the screen
+		if (textScrollPercent <= 0 && activeBlock.blockIndex == numAnimBlocks - 1) {
+			$('#anim_' + activeBlock.blockIndex + ' .heading_block').css({'transform': 'translateY(0%)'});
+
+			$('#anim_' + activeBlock.blockIndex + ' .heading_block h1').text(blockArr[activeBlock.blockIndex].heading);
+			$('#anim_' + activeBlock.blockIndex + ' .heading_block p').text(blockArr[activeBlock.blockIndex].text);
+
 			$('#anim_' + activeBlock.blockIndex + ' .heading_block h1').toggleClass('text_distortion_anim--active', false);
 			$('#anim_' + activeBlock.blockIndex + ' .heading_block p').toggleClass('text_distortion_anim--active', false);
 		}

@@ -1,5 +1,5 @@
 body {
-	font-family: 'Rajdhani', 'Helvetica Neue', sans-serif;
+	font-family: 'Source Code Pro', 'Helvetica Neue', sans-serif;
 
 	margin: 0;
 	padding: 0;
@@ -370,10 +370,10 @@ a:hover {
 
 @media screen and (orientation:portrait) and (max-width: 992px) {
 	h1 {
-		font-size: 60pt;
+		font-size: 65pt;
 	}
 	h2 {
-		font-size: 30pt;
+		font-size: 40pt;
 	}
 	h3 {
 		font-size: 30pt;
@@ -382,7 +382,7 @@ a:hover {
 		font-size: 40pt;
 	}
 	p {
-		font-size: 25pt;
+		font-size: 30pt;
 	}
 	li {
 		font-size: 25pt;
@@ -408,6 +408,17 @@ a:hover {
 		background-color: green;
 	}
 
+	.fixed_menu .arrow-down-icon {
+		width: 8px;
+	}
+	.fixed_menu .arrow-down-icon:before {
+		border-top: solid 8px currentColor;
+		border-right: solid 8px currentColor;
+	}
+	.fixed_menu .solid-line-icon {
+		width: 8px;
+	}
+
 	#globe_frame {
 		margin-left: auto;
 		margin-right: auto;
@@ -422,6 +433,10 @@ a:hover {
 
 	#code_frame .text li {
 		font-size: 18pt;
+	}
+
+	@keyframes glow-in-out {
+	    to {text-shadow: 0 0 2px white;}
 	}
 }
 
