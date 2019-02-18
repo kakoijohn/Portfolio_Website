@@ -81,7 +81,7 @@ $(document).ready(function() {
 				
 				var codeText = $(li).html();
 
-				var chance = 20; //% chance
+				var chance = 30; //% chance
 				var randomChance = Math.floor(Math.random() * 100);
 				if (randomChance <= chance) {
 					var firstIndex  = Math.floor(Math.random() * codeText.length);
