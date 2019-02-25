@@ -364,6 +364,50 @@ a:hover {
 	width: 100%;
 }
 
+#lander {
+	width: 3vw;
+
+	position: fixed;
+
+	top: -10vh;
+	left: -10vw;
+}
+
+@keyframes lander_landing {
+	0% {top: -10vh; left: -10vw}
+	100% {top: calc(100% - (100vw / 3) - 3.2vw); left: 36vw;}
+}
+
+#starfield {
+	position: fixed;
+
+	opacity: 0;
+
+	top: 0;
+	left: 0;
+
+	z-index: -1;
+
+	transition: ease-in 1s all;
+}
+
+#starfield2 {
+	position: fixed;
+
+	opacity: 0;
+
+	top: 50vh;
+	left: 0;
+
+	z-index: -1;
+
+	transition: ease-in 1s all;
+}
+
+#mountain {
+	top: -30vh;
+}
+
 @media screen and (max-width: 992px) {
 
 }

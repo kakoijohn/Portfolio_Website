@@ -37,6 +37,7 @@ $(document).ready(function() {
 		mainHeadingAnimation(0.15);
 	});
 
+	var atbottom = false;
 	$(document).scroll(function() {
 		var scrollTop = $(document).scrollTop();
 
@@ -98,6 +99,22 @@ $(document).ready(function() {
 			});
 		} else {
 			$('#code_frame').css('display', 'none');
+		}
+
+		if (activeBlock.blockIndex == 4) {
+			$('#starfield').css('opacity', 1);
+			$('#starfield2').css('opacity', 1);
+		} else {
+			$('#starfield').css('opacity', 0);
+			$('#starfield2').css('opacity', 0);
+		}
+
+		if(scrollTop + $(window).height() + 10 >= $(document).height()) {
+			$('#lander').css('animation', 'lander_landing 5s forwards');
+			atbottom = true;
+		} else if (atbottom == true) {
+			$('#lander').css('animation', 'lander_landing 5s reverse');
+			atbottom = false;
 		}
 	});
 
