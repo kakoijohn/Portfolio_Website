@@ -49,10 +49,14 @@ p {
 
 a {
 	text-decoration: none;
+
+	color: #5173fd;
 }
 
 a:hover {
 	cursor: pointer;
+
+	color: #c8d3ff;
 }
 
 .fixed_menu {
@@ -364,18 +368,36 @@ a:hover {
 	width: 100%;
 }
 
+.lander_container {
+
+	/*top: 200vh;*/
+	/*left: 0;*/
+
+	margin-top: -100vh;
+
+	width: 100vw;
+	height: 100vh;
+}
+
 #lander {
 	width: 3vw;
 
-	position: fixed;
+	position: relative;
 
 	top: -10vh;
 	left: -10vw;
+
+	z-index: 500;
 }
 
 @keyframes lander_landing {
-	0% {top: -10vh; left: -10vw}
-	100% {top: calc(100% - (100vw / 3) - 3.2vw); left: 36vw;}
+	0% {top: -10vh; left: -10vw;
+		transform: rotate(70deg);}
+	20% {transform: rotate(70deg);}
+	40% {transform: rotate(-50deg);}
+	80% {left: 36vw;}
+	90% {transform: rotate(0deg);}
+	100% {top: calc(100% - (100vw / 3) - 3.33vw); left: 36vw;}
 }
 
 #starfield {
@@ -405,7 +427,43 @@ a:hover {
 }
 
 #mountain {
-	top: -30vh;
+	/*top: -30vh;*/
+}
+
+.contact_area {
+	opacity: 0;
+
+	position: fixed;
+
+	top: 22vh;
+	left: 50%;
+	margin-right: 2.5vw;
+
+	z-index: 100;
+
+	transition: ease-in 1s all;
+}
+
+.contact_area .text_block {
+	position: relative;
+
+	background-color: black;
+
+	display: grid;
+	grid-auto-rows: 1fr 1fr 1fr;
+}
+
+.contact_area .text_block h2 {
+	margin-bottom: 30px;
+}
+
+.contact_area .text_block h4 {
+	margin-bottom: 10px;
+}
+
+.contact_area .text_block div {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 }
 
 @media screen and (max-width: 992px) {
@@ -481,6 +539,16 @@ a:hover {
 
 	@keyframes glow-in-out {
 	    to {text-shadow: 0 0 2px white;}
+	}
+
+	.contact_area {
+		top: 30%;
+		left: 5%;
+		margin-right: 5%;
+	}
+
+	.contact_area h4 {
+		font-size: 30pt;
 	}
 }
 

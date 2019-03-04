@@ -7,7 +7,6 @@ $(document).ready(function() {
 		viewportWidth = $(window).width();
 	});
 
-
 	//setup variables for the headings
 	var textScrollSpeed = 0.1;
 
@@ -40,6 +39,7 @@ $(document).ready(function() {
 	var atbottom = false;
 	$(document).scroll(function() {
 		var scrollTop = $(document).scrollTop();
+		var distFromPageBottom = $(document).height() - scrollTop - $(window).height();
 
 		for (var i = 0; i < numSlideInContainers; i++) {
 			if ($('#container_' + i).visible()) {
@@ -104,20 +104,50 @@ $(document).ready(function() {
 		if (activeBlock.blockIndex == 4) {
 			$('#starfield').css('opacity', 1);
 			$('#starfield2').css('opacity', 1);
+
+			$('.contact_area').css('opacity', 1);
 		} else {
 			$('#starfield').css('opacity', 0);
 			$('#starfield2').css('opacity', 0);
+
+			$('.contact_area').css('opacity', 0);
 		}
 
-		if(scrollTop + $(window).height() + 10 >= $(document).height()) {
-			$('#lander').css('animation', 'lander_landing 5s forwards');
-			atbottom = true;
-		} else if (atbottom == true) {
-			$('#lander').css('animation', 'lander_landing 5s reverse');
-			atbottom = false;
+
+		if (activeBlock.blockIndex == 4 && distFromPageBottom < $(window).height() * 3)
+			$('#contact_name').css('opacity', 1);
+		else
+			$('#contact_name').css('opacity', 0);
+
+		if (activeBlock.blockIndex == 4 && distFromPageBottom < $(window).height() * 2.5)
+			$('#email').css('opacity', 1);
+		else
+			$('#email').css('opacity', 0);
+
+		if (activeBlock.blockIndex == 4 && distFromPageBottom < $(window).height() * 2)
+			$('#phone').css('opacity', 1);
+		else
+			$('#phone').css('opacity', 0);
+
+		if (activeBlock.blockIndex == 4 && distFromPageBottom < $(window).height() * 1.5)
+			$('#linkedin').css('opacity', 1);
+		else
+			$('#linkedin').css('opacity', 0);
+
+		if (activeBlock.blockIndex == 4 && distFromPageBottom < $(window).height() * 1)
+			$('#resume').css('opacity', 1);
+		else
+			$('#resume').css('opacity', 0);
+
+
+		if(scrollTop + $(window).height() + 200 >= $(document).height()) {
+			$('#lander').css('animation', 'lander_landing 10s forwards');
+			$('#lander').one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+				$('#lander .burner').css('opacity', '0');
+			});
 		}
+
 	});
-
 
 	function headingAnimation() {
 		var activeBlock = getCurrentActiveBlock();
