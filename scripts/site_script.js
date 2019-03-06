@@ -7,6 +7,26 @@ $(document).ready(function() {
 		viewportWidth = $(window).width();
 	});
 
+
+	$("#contact_button").click(function() {
+	    $([document.documentElement, document.body]).animate({
+	        scrollTop: $("#mountain").offset().top
+	    }, 2000);
+	});
+
+	$("#works_button").click(function() {
+	    $([document.documentElement, document.body]).animate({
+	        scrollTop: $("#ANPS_website_image").offset().top - 100
+	    }, 2000);
+	});
+
+	$("#home_button").click(function() {
+	    $([document.documentElement, document.body]).animate({
+	        scrollTop: 0
+	    }, 2000);
+	});
+
+
 	//setup variables for the headings
 	var textScrollSpeed = 0.1;
 
@@ -105,39 +125,38 @@ $(document).ready(function() {
 			$('#starfield').css('opacity', 1);
 			$('#starfield2').css('opacity', 1);
 
-			$('.contact_area').css('opacity', 1);
+			$('.contact_area').css('display', 'block');
+
+			if (distFromPageBottom < $(window).height() * 2.0)
+				$('#contact_name').css('opacity', 1);
+			else
+				$('#contact_name').css('opacity', 0);
+
+			if (distFromPageBottom < $(window).height() * 1.5)
+				$('#email').css('opacity', 1);
+			else
+				$('#email').css('opacity', 0);
+
+			if (distFromPageBottom < $(window).height() * 1.0)
+				$('#phone').css('opacity', 1);
+			else
+				$('#phone').css('opacity', 0);
+
+			if (distFromPageBottom < $(window).height() * .75)
+				$('#linkedin').css('opacity', 1);
+			else
+				$('#linkedin').css('opacity', 0);
+
+			if (distFromPageBottom < $(window).height() * .5)
+				$('#resume').css('opacity', 1);
+			else
+				$('#resume').css('opacity', 0);
 		} else {
 			$('#starfield').css('opacity', 0);
 			$('#starfield2').css('opacity', 0);
 
-			$('.contact_area').css('opacity', 0);
+			$('.contact_area').css('display', 'none');
 		}
-
-
-		if (activeBlock.blockIndex == 4 && distFromPageBottom < $(window).height() * 3)
-			$('#contact_name').css('opacity', 1);
-		else
-			$('#contact_name').css('opacity', 0);
-
-		if (activeBlock.blockIndex == 4 && distFromPageBottom < $(window).height() * 2.5)
-			$('#email').css('opacity', 1);
-		else
-			$('#email').css('opacity', 0);
-
-		if (activeBlock.blockIndex == 4 && distFromPageBottom < $(window).height() * 2)
-			$('#phone').css('opacity', 1);
-		else
-			$('#phone').css('opacity', 0);
-
-		if (activeBlock.blockIndex == 4 && distFromPageBottom < $(window).height() * 1.5)
-			$('#linkedin').css('opacity', 1);
-		else
-			$('#linkedin').css('opacity', 0);
-
-		if (activeBlock.blockIndex == 4 && distFromPageBottom < $(window).height() * 1)
-			$('#resume').css('opacity', 1);
-		else
-			$('#resume').css('opacity', 0);
 
 
 		if(scrollTop + $(window).height() + 200 >= $(document).height()) {

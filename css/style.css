@@ -59,49 +59,44 @@ a:hover {
 	color: #c8d3ff;
 }
 
-.fixed_menu {
+#logo {
 	position: fixed;
 
-	margin: 2.5vh 2.5vw 2.5vh 2.5vw;
+	left: 2.5vw;
+	top: 2.5vh;
 
-	height: 95%;
-	width: 95%;
-
-	z-index: 5;
+	z-index: 3;
 }
 
-.fixed_menu .logo {
-	position: absolute;
-
-	left: 0;
-	top: 0;
-	grid-area: logo;
-}
-
-.fixed_menu .contact {
-	position: absolute;
-
-	grid-area: contact;
+#contact {
+	position: fixed;
 	
-	right: 0;
-	top: 0;
+	right: 2.5vw;
+	top: 2.5vh;
+
+	z-index: 3;
 }
 
-.fixed_menu .menu {
-	position: absolute;
+#menu {
+	position: fixed;
 
-	grid-area: menu;
+	left: 2.5vw;
+	bottom: 2.5vh;
 
-	left: 0;
-	bottom: 0;
+	z-index: 3;
 }
 
 #arrow_icon_area {
-	position: absolute;
+	position: fixed;
 	margin-left: 50%;
+
+	bottom: 2.5vh;
+	max-height: 95vh;
+
+	z-index: 3;
 }
 
-.fixed_menu .arrow-down-icon {
+.arrow-down-icon {
 	transition: ease-in 1s all;
 
 	color: #fff;
@@ -114,7 +109,7 @@ a:hover {
 	background-color: currentColor;
 	animation: float-up-down 2s ease-in infinite;
 }
-.fixed_menu .arrow-down-icon:before {
+.arrow-down-icon:before {
 	content: '';
 	position: absolute;
 	left: -10px;
@@ -127,7 +122,7 @@ a:hover {
 	        transform: rotate(135deg);
 }
 
-.fixed_menu .solid-line-icon {
+.solid-line-icon {
 	color: #fff;
 	position: absolute;
 	margin-left: 50%;
@@ -168,7 +163,7 @@ a:hover {
 
 	visibility: hidden;
 
-	z-index: 1;
+	z-index: 3;
 }
 
 .anim_block .heading_block--active {
@@ -362,17 +357,99 @@ a:hover {
 #code_frame .text li:nth-child(20) {animation-delay: 0.2s;}
 #code_frame .text li:nth-child(21) {animation-delay: 0.8s;}
 
+.works_pannel {
+	position: relative;
+
+	width: 60%;
+	height: 450px;
+	float: right;
+
+	margin-right: 5vw;
+	margin-bottom: 50px;
+
+	z-index: 2;
+}
+
+.works_image {
+	position: absolute;
+	display: table;
+	
+	height: 90%;
+	width: 90%;
+
+	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+
+	transition: cubic-bezier(0, 0, 0.1, 1.62) 0.2s all;
+}
+
+.works_text {
+	display: table-cell;
+
+	text-align: center;
+	vertical-align: middle;
+
+	font-size: 40pt;
+	font-weight: bolder;
+
+	transition: cubic-bezier(0, 0, 0.1, 1.62) 0.2s all;
+}
+
+.works_image:hover {
+	height: 95%;
+	width: 95%;
+
+	cursor: pointer;
+}
+
+.works_image:hover .works_text {
+	font-size: 50pt;
+}
+
 #ANT_website_image {
-	background: url(../images/ANT_website.png) top left no-repeat;
-	height: 50vh;
-	width: 100%;
+	background: url(../images/ANT_website.jpg) top left no-repeat;
+	background-size: cover;
+}
+
+#ANT_website_image .works_text {
+	color: #4671D5;
+}
+
+#ANPS_website_image {
+	background: url(../images/jimmy_homepage_pic.jpg) top left no-repeat;
+	background-size: cover;
+}
+
+#ANPS_website_image .works_text {
+	color: #feef52;
+
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+#Knoxcraft_website_image {
+	background: url(../images/Knoxcraft_image.png) top left no-repeat;
+	background-size: cover;
+}
+
+#Knoxcraft_website_image .works_text {
+	color: #39ae40;
+
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+#football_website_image {
+	background: url(../images/football_pic.jpg) top left no-repeat;
+	background-size: cover;
+}
+
+#football_website_image .works_text {
+	color: #6e00bc;
+
+	background-color: rgba(0, 0, 0, 0.1);
 }
 
 .lander_container {
-
-	/*top: 200vh;*/
-	/*left: 0;*/
-
 	margin-top: -100vh;
 
 	width: 100vw;
@@ -431,7 +508,7 @@ a:hover {
 }
 
 .contact_area {
-	opacity: 0;
+	display: none;
 
 	position: fixed;
 
@@ -439,7 +516,7 @@ a:hover {
 	left: 50%;
 	margin-right: 2.5vw;
 
-	z-index: 100;
+	z-index: 1;
 
 	transition: ease-in 1s all;
 }
@@ -535,6 +612,14 @@ a:hover {
 
 	#code_frame .text li {
 		font-size: 18pt;
+	}
+
+	.works_pannel {
+		width: 90%;
+		height: 600px;
+
+		margin-right: 5vw;
+		margin-left: 5vw;
 	}
 
 	@keyframes glow-in-out {
