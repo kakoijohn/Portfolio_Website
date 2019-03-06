@@ -2,11 +2,53 @@ $(document).ready(function() {
 	var viewportHeight = $(window).height();
 	var viewportWidth = $(window).width();
 
+	var portraitOrientation;
+	if (viewportHeight >= viewportWidth)
+		portraitOrientation = true;
+	else
+		portraitOrientation = false;
+
 	$(window).resize(function() { //when the window is resized, recalculate window height
 		viewportHeight = $(window).height();
 		viewportWidth = $(window).width();
+
+		if (viewportHeight >= viewportWidth)
+			portraitOrientation = true;
+		else
+			portraitOrientation = false;
 	});
 
+
+
+	$("#home_button").click(function() {
+	    $([document.documentElement, document.body]).animate({
+	        scrollTop: 0
+	    }, 2000);
+	});
+
+	$("#arrow_icon_area").click(function() {
+		if (!portraitOrientation) {
+	    	$([document.documentElement, document.body]).animate({
+	    	    scrollTop: $("#globe_frame").offset().top - 50
+	    	}, 3000);
+	    } else {
+	    	$([document.documentElement, document.body]).animate({
+	    	    scrollTop: $("#globe_frame").offset().top - 600
+	    	}, 3000);
+	    }
+	});
+
+	$("#works_button").click(function() {
+		if (!portraitOrientation) {
+			$([document.documentElement, document.body]).animate({
+			    scrollTop: $("#ANPS_website_image").offset().top - 100
+			}, 2000);
+		} else {
+			$([document.documentElement, document.body]).animate({
+			    scrollTop: $("#ANPS_website_image").offset().top - 600
+			}, 2000);
+		}
+	});
 
 	$("#contact_button").click(function() {
 	    $([document.documentElement, document.body]).animate({
@@ -14,16 +56,9 @@ $(document).ready(function() {
 	    }, 2000);
 	});
 
-	$("#works_button").click(function() {
-	    $([document.documentElement, document.body]).animate({
-	        scrollTop: $("#ANPS_website_image").offset().top - 100
-	    }, 2000);
-	});
-
-	$("#home_button").click(function() {
-	    $([document.documentElement, document.body]).animate({
-	        scrollTop: 0
-	    }, 2000);
+	//cancel scroll animation if user inputs
+	$([document.documentElement, document.body]).on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
+		$([document.documentElement, document.body]).stop();
 	});
 
 
@@ -58,6 +93,7 @@ $(document).ready(function() {
 
 	var atbottom = false;
 	$(document).scroll(function() {
+
 		var scrollTop = $(document).scrollTop();
 		var distFromPageBottom = $(document).height() - scrollTop - $(window).height();
 

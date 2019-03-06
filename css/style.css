@@ -122,6 +122,10 @@ a:hover {
 	        transform: rotate(135deg);
 }
 
+.arrow-down-icon:hover {
+	cursor: pointer;
+}
+
 .solid-line-icon {
 	color: #fff;
 	position: absolute;
@@ -163,7 +167,7 @@ a:hover {
 
 	visibility: hidden;
 
-	z-index: 3;
+	z-index: 2;
 }
 
 .anim_block .heading_block--active {
@@ -396,14 +400,14 @@ a:hover {
 	transition: cubic-bezier(0, 0, 0.1, 1.62) 0.2s all;
 }
 
-.works_image:hover {
+.works_image:hover, .works_image:active {
 	height: 95%;
 	width: 95%;
 
 	cursor: pointer;
 }
 
-.works_image:hover .works_text {
+.works_image:hover .works_text, .works_image:active .works_text {
 	font-size: 50pt;
 }
 
@@ -624,6 +628,10 @@ a:hover {
 
 	.works_text {
 		font-size: 55pt;
+	}
+
+	.works_image:hover .works_text, .works_image:active .works_text {
+		font-size: 63pt;
 	}
 
 	@keyframes glow-in-out {
