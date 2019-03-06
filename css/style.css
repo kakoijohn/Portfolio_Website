@@ -446,7 +446,7 @@ a:hover {
 #football_website_image .works_text {
 	color: #6e00bc;
 
-	background-color: rgba(0, 0, 0, 0.1);
+	background-color: rgba(250, 229, 24, 0.1);
 }
 
 .lander_container {
@@ -620,6 +620,10 @@ a:hover {
 
 		margin-right: 5vw;
 		margin-left: 5vw;
+	}
+
+	.works_text {
+		font-size: 55pt;
 	}
 
 	@keyframes glow-in-out {
