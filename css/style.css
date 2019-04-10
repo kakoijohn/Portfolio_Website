@@ -175,7 +175,7 @@ a:hover {
 }
 
 .anim_block .text_distortion_anim--active {
-	animation: glitch-skew 4s cubic-bezier(.25, .46, .45, .94) infinite;
+	/*animation: glitch-skew 4s cubic-bezier(.25, .46, .45, .94) infinite;*/
 }
 
 .anim_block .heading_block h1 {
