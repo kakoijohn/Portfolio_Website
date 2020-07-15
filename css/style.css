@@ -418,6 +418,23 @@ a:hover {
 	background-size: cover;
 }
 
+#Sango_website_image .works_text {
+	color: #52fef7;
+
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+#card_game_website_image {
+	background: url(../images/card_game.png) top left no-repeat;
+	background-size: cover;
+}
+
+#card_game_website_image .works_text {
+	color: #f75b5b;
+
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
 #ANT_website_image {
 	background: url(../images/ANT_website.jpg) top left no-repeat;
 	background-size: cover;
@@ -430,12 +447,6 @@ a:hover {
 #ANPS_website_image {
 	background: url(../images/jimmy_homepage_pic.jpg) top left no-repeat;
 	background-size: cover;
-}
-
-#Sango_website_image .works_text {
-	color: #52fef7;
-
-	background-color: rgba(0, 0, 0, 0.1);
 }
 
 #ANPS_website_image .works_text {
