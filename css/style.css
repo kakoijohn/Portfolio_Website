@@ -319,6 +319,8 @@ a:hover {
 
 	width: 50vw;
 	overflow: hidden;
+	
+	user-select: none;
 }
 
 #code_frame .text li {
