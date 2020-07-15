@@ -332,7 +332,7 @@ a:hover {
 	color: darkgreen;
 	-webkit-font-smoothing: none;
 
-	animation: glow-in-out 1s infinite alternate;
+	/* animation: glow-in-out 1s infinite alternate; */
 }
 
 @keyframes glow-in-out {
@@ -411,6 +411,11 @@ a:hover {
 	font-size: 50pt;
 }
 
+#Sango_website_image {
+	background: url(../images/Sango_homepage.jpg) top left no-repeat;
+	background-size: cover;
+}
+
 #ANT_website_image {
 	background: url(../images/ANT_website.jpg) top left no-repeat;
 	background-size: cover;
@@ -423,6 +428,12 @@ a:hover {
 #ANPS_website_image {
 	background: url(../images/jimmy_homepage_pic.jpg) top left no-repeat;
 	background-size: cover;
+}
+
+#Sango_website_image .works_text {
+	color: #52fef7;
+
+	background-color: rgba(0, 0, 0, 0.1);
 }
 
 #ANPS_website_image .works_text {

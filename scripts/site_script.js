@@ -41,11 +41,11 @@ $(document).ready(function() {
 	$("#works_button").click(function() {
 		if (!portraitOrientation) {
 			$([document.documentElement, document.body]).animate({
-			    scrollTop: $("#ANPS_website_image").offset().top - 100
+			    scrollTop: $("#Sango_website_image").offset().top - 100
 			}, 2000);
 		} else {
 			$([document.documentElement, document.body]).animate({
-			    scrollTop: $("#ANPS_website_image").offset().top - 600
+			    scrollTop: $("#Sango_website_image").offset().top - 600
 			}, 2000);
 		}
 	});
@@ -68,8 +68,8 @@ $(document).ready(function() {
 	var numAnimBlocks = $('.anim_block').size();
 	var blockArr = [];
 	for (var i = 0; i < numAnimBlocks; i++) {
-		blockArr[i] =  {height: $('#anim_' + i).height(), 
-						heading: $('#anim_' + i + ' .heading_block h1').html(), 
+		blockArr[i] =  {height: $('#anim_' + i).height(),
+						heading: $('#anim_' + i + ' .heading_block h1').html(),
 						text: $('#anim_' + i + ' .heading_block p').html()};
 	}
 	var numSlideInContainers = $('.slide_in_anim .container').size();
@@ -138,18 +138,14 @@ $(document).ready(function() {
 				
 				var codeText = $(li).html();
 
-				var chance = 30; //% chance
-				var randomChance = Math.floor(Math.random() * 100);
-				if (randomChance <= chance) {
-					var firstIndex  = Math.floor(Math.random() * codeText.length);
-					var secondIndex = Math.floor(Math.random() * codeText.length);
+				var firstIndex  = Math.floor(Math.random() * codeText.length);
+				var secondIndex = Math.floor(Math.random() * codeText.length);
 
-					var firstChar  = codeText.charAt(firstIndex);
-					var secondChar = codeText.charAt(secondIndex);
+				var firstChar  = codeText.charAt(firstIndex);
+				var secondChar = codeText.charAt(secondIndex);
 
-					codeText = codeText.substring(0, firstIndex) + secondChar + codeText.substring(firstIndex + 1);
-					codeText = codeText.substring(0, secondIndex) + firstChar + codeText.substring(secondIndex + 1);
-				}
+				codeText = codeText.substring(0, firstIndex) + secondChar + codeText.substring(firstIndex + 1);
+				codeText = codeText.substring(0, secondIndex) + firstChar + codeText.substring(secondIndex + 1);
 
 				$(li).html(codeText);
 			});
@@ -358,7 +354,7 @@ $(document).ready(function() {
 
 					var newTextChars = newText.substring(0, numCharsVisible);
 					var newTextWhiteSpace = "<span style=\"color: transparent\">" + newText.substring(numCharsVisible, newText.length) + "</span>";
-					newText = newTextChars + newTextWhiteSpace;			
+					newText = newTextChars + newTextWhiteSpace;
 				}
 
 				$('#anim_0 .heading_block h1').html(newHeading);
